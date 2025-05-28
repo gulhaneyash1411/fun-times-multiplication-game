@@ -8,14 +8,13 @@ interface CelebrationModalProps {
   level: number;
   score: number;
   onNextLevel: () => void;
-  onClose: () => void;
 }
 
-const CelebrationModal = ({ isOpen, level, score, onNextLevel, onClose }: CelebrationModalProps) => {
+const CelebrationModal = ({ isOpen, level, score, onNextLevel }: CelebrationModalProps) => {
   const celebrationEmojis = ['🎊', '🎉', '🌟', '🏆', '🎈', '🎯'];
   
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={isOpen} onOpenChange={() => {}}>
       <DialogContent className="max-w-lg mx-auto bg-gradient-to-b from-yellow-300 to-orange-300 rounded-3xl border-0 shadow-2xl">
         <div className="text-center p-8">
           <div className="flex justify-center gap-2 mb-6">

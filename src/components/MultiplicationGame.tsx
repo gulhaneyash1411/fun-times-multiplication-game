@@ -25,21 +25,11 @@ const MultiplicationGame = () => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [gameStarted, setGameStarted] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(true);
-  const [usedQuestions, setUsedQuestions] = useState<Set<string>>(new Set());
 
   const generateQuestion = () => {
     const maxNum = Math.min(currentLevel + 1, 5); // Gradually increase difficulty
-    let num1, num2, questionKey;
-    
-    // Generate unique questions for this level
-    do {
-      num1 = Math.floor(Math.random() * maxNum) + 1;
-      num2 = Math.floor(Math.random() * maxNum) + 1;
-      questionKey = `${num1}-${num2}-${currentLevel}`;
-    } while (usedQuestions.has(questionKey));
-    
-    setUsedQuestions(prev => new Set(prev).add(questionKey));
-    
+    const num1 = Math.floor(Math.random() * maxNum) + 1;
+    const num2 = Math.floor(Math.random() * maxNum) + 1;
     const answer = num1 * num2;
     
     const options = [answer];
@@ -123,7 +113,6 @@ const MultiplicationGame = () => {
   const nextLevel = () => {
     setCurrentLevel(currentLevel + 1);
     setQuestionsAnswered(0);
-    setUsedQuestions(new Set()); // Reset used questions for new level
     setShowCelebration(false);
     generateQuestion();
   };
@@ -190,7 +179,6 @@ const MultiplicationGame = () => {
         isOpen={showFeedback}
         isCorrect={isCorrect}
         onNext={nextQuestion}
-        onClose={() => setShowFeedback(false)}
       />
       
       <CelebrationModal 
@@ -198,7 +186,6 @@ const MultiplicationGame = () => {
         level={currentLevel}
         score={score}
         onNextLevel={nextLevel}
-        onClose={() => setShowCelebration(false)}
       />
     </div>
   );
