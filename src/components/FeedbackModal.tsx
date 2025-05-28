@@ -7,11 +7,12 @@ interface FeedbackModalProps {
   isOpen: boolean;
   isCorrect: boolean;
   onNext: () => void;
+  onClose: () => void;
 }
 
-const FeedbackModal = ({ isOpen, isCorrect, onNext }: FeedbackModalProps) => {
+const FeedbackModal = ({ isOpen, isCorrect, onNext, onClose }: FeedbackModalProps) => {
   return (
-    <Dialog open={isOpen} onOpenChange={() => {}}>
+    <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-md mx-auto bg-white rounded-3xl border-0 shadow-2xl">
         <div className="text-center p-6">
           {isCorrect ? (
