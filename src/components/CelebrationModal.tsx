@@ -15,7 +15,7 @@ const CelebrationModal = ({ isOpen, level, score, onNextLevel }: CelebrationModa
   
   return (
     <Dialog open={isOpen} onOpenChange={() => {}}>
-      <DialogContent className="max-w-lg mx-auto bg-gradient-to-b from-yellow-300 to-orange-300 rounded-3xl border-0 shadow-2xl">
+      <DialogContent className="max-w-lg mx-auto bg-gradient-to-b from-yellow-300 to-orange-300 rounded-3xl border-0 shadow-2xl [&>button]:hidden">
         <div className="text-center p-8">
           <div className="flex justify-center gap-2 mb-6">
             {celebrationEmojis.map((emoji, index) => (

@@ -12,13 +12,13 @@ interface FeedbackModalProps {
 const FeedbackModal = ({ isOpen, isCorrect, onNext }: FeedbackModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={() => {}}>
-      <DialogContent className="max-w-md mx-auto bg-white rounded-3xl border-0 shadow-2xl">
+      <DialogContent className="max-w-md mx-auto bg-gradient-to-br from-pink-200 to-purple-200 rounded-3xl border-0 shadow-2xl [&>button]:hidden">
         <div className="text-center p-6">
           {isCorrect ? (
             <>
               <div className="text-8xl mb-4 animate-bounce">🎉</div>
               <h2 className="text-3xl font-bold text-green-600 mb-4">Fantastic!</h2>
-              <p className="text-lg text-gray-600 mb-6">You got it right! Well done!</p>
+              <p className="text-lg text-gray-700 mb-6">You got it right! Well done!</p>
               <div className="flex justify-center gap-2 mb-4">
                 <span className="text-2xl animate-pulse">⭐</span>
                 <span className="text-2xl animate-pulse" style={{ animationDelay: '0.2s' }}>⭐</span>
@@ -29,7 +29,7 @@ const FeedbackModal = ({ isOpen, isCorrect, onNext }: FeedbackModalProps) => {
             <>
               <div className="text-8xl mb-4 animate-bounce">🤔</div>
               <h2 className="text-3xl font-bold text-orange-600 mb-4">Oops!</h2>
-              <p className="text-lg text-gray-600 mb-6">That's not quite right. Try again!</p>
+              <p className="text-lg text-gray-700 mb-6">That's not quite right. Try again!</p>
               <div className="text-2xl mb-4">💪</div>
             </>
           )}
@@ -40,7 +40,7 @@ const FeedbackModal = ({ isOpen, isCorrect, onNext }: FeedbackModalProps) => {
               isCorrect 
                 ? 'bg-green-500 hover:bg-green-600' 
                 : 'bg-orange-500 hover:bg-orange-600'
-            } text-white px-8 py-3 rounded-full text-lg transform transition hover:scale-105`}
+            } text-white px-8 py-3 rounded-full text-lg transform transition hover:scale-105 shadow-lg`}
           >
             {isCorrect ? 'Next Question! 🚀' : 'Try Again! 💪'}
           </Button>

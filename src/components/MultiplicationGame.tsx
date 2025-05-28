@@ -130,14 +130,19 @@ const MultiplicationGame = () => {
 
   if (!gameStarted) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-green-400 via-green-300 to-yellow-200">
-        <div className="text-center bg-white rounded-3xl p-8 shadow-2xl max-w-md mx-4">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-400 via-teal-300 to-blue-400">
+        <div className="text-center bg-white rounded-3xl p-8 shadow-2xl max-w-md mx-4 border-4 border-yellow-300">
           <div className="text-6xl mb-4 animate-bounce">🐵</div>
-          <h1 className="text-4xl font-bold text-green-700 mb-4">Jungle Math Adventure!</h1>
-          <p className="text-lg text-gray-600 mb-6">Help the jungle animals solve multiplication problems!</p>
+          <h1 className="text-4xl font-bold text-emerald-700 mb-4">Jungle Math Adventure!</h1>
+          <p className="text-lg text-gray-700 mb-6">Help the jungle animals solve multiplication problems!</p>
+          <div className="flex justify-center gap-2 mb-6">
+            <span className="text-3xl animate-bounce">🌴</span>
+            <span className="text-3xl animate-bounce" style={{ animationDelay: '0.2s' }}>🦋</span>
+            <span className="text-3xl animate-bounce" style={{ animationDelay: '0.4s' }}>🐸</span>
+          </div>
           <Button 
             onClick={startGame}
-            className="bg-green-500 hover:bg-green-600 text-white text-xl px-8 py-4 rounded-full transform transition hover:scale-105"
+            className="bg-emerald-500 hover:bg-emerald-600 text-white text-xl px-8 py-4 rounded-full transform transition hover:scale-105 shadow-lg"
           >
             Start Adventure! 🌟
           </Button>
@@ -147,14 +152,14 @@ const MultiplicationGame = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-400 via-green-300 to-yellow-200 p-4">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-400 via-teal-300 to-blue-400 p-4">
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <ScoreBoard score={score} level={currentLevel} />
         <Button
           variant="ghost"
           onClick={() => setSoundEnabled(!soundEnabled)}
-          className="text-white hover:bg-white/20"
+          className="text-white hover:bg-white/20 rounded-full p-3"
         >
           <Volume2 className={`h-6 w-6 ${soundEnabled ? 'text-white' : 'text-gray-400'}`} />
         </Button>
