@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import QuestionDisplay from './QuestionDisplay';
 import AnswerOptions from './AnswerOptions';
@@ -140,29 +141,14 @@ const MultiplicationGame = () => {
 
   if (!gameStarted) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-400 via-teal-400 to-cyan-400 relative overflow-hidden">
-        {/* Floating jungle elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-10 left-10 text-6xl animate-bounce" style={{ animationDelay: '0s' }}>🌴</div>
-          <div className="absolute top-20 right-20 text-5xl animate-bounce" style={{ animationDelay: '0.5s' }}>🦜</div>
-          <div className="absolute bottom-20 left-20 text-4xl animate-bounce" style={{ animationDelay: '1s' }}>🐒</div>
-          <div className="absolute bottom-32 right-32 text-5xl animate-bounce" style={{ animationDelay: '1.5s' }}>🦋</div>
-          <div className="absolute top-1/2 left-5 text-3xl animate-pulse">🌺</div>
-          <div className="absolute top-1/3 right-10 text-4xl animate-pulse">🌿</div>
-        </div>
-        
-        <div className="text-center bg-white rounded-3xl p-8 shadow-2xl max-w-md mx-4 border-4 border-yellow-300 relative z-10">
-          <div className="text-8xl mb-4 animate-bounce">🐵</div>
-          <h1 className="text-5xl font-bold text-emerald-700 mb-4 font-comic">Jungle Math Adventure!</h1>
-          <p className="text-xl text-gray-700 mb-6 font-medium">Help the jungle animals solve multiplication problems and collect bananas!</p>
-          <div className="flex justify-center gap-2 mb-6">
-            <span className="text-3xl animate-spin" style={{ animationDuration: '3s' }}>🍌</span>
-            <span className="text-3xl animate-spin" style={{ animationDuration: '3s', animationDelay: '0.5s' }}>🥥</span>
-            <span className="text-3xl animate-spin" style={{ animationDuration: '3s', animationDelay: '1s' }}>🍌</span>
-          </div>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-green-400 via-green-300 to-yellow-200">
+        <div className="text-center bg-white rounded-3xl p-8 shadow-2xl max-w-md mx-4">
+          <div className="text-6xl mb-4 animate-bounce">🐵</div>
+          <h1 className="text-4xl font-bold text-green-700 mb-4">Jungle Math Adventure!</h1>
+          <p className="text-lg text-gray-600 mb-6">Help the jungle animals solve multiplication problems!</p>
           <Button 
             onClick={startGame}
-            className="bg-gradient-to-r from-orange-400 to-yellow-400 hover:from-orange-500 hover:to-yellow-500 text-white text-xl px-8 py-4 rounded-full transform transition hover:scale-110 shadow-lg border-4 border-white font-bold"
+            className="bg-green-500 hover:bg-green-600 text-white text-xl px-8 py-4 rounded-full transform transition hover:scale-105"
           >
             Start Adventure! 🌟
           </Button>
@@ -172,24 +158,14 @@ const MultiplicationGame = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-400 via-teal-400 to-cyan-400 p-4 relative overflow-hidden">
-      {/* Floating jungle elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-5 left-5 text-4xl animate-bounce" style={{ animationDelay: '0s' }}>🌴</div>
-        <div className="absolute top-10 right-10 text-3xl animate-bounce" style={{ animationDelay: '0.5s' }}>🦜</div>
-        <div className="absolute bottom-10 left-10 text-3xl animate-bounce" style={{ animationDelay: '1s' }}>🐸</div>
-        <div className="absolute bottom-20 right-20 text-4xl animate-bounce" style={{ animationDelay: '1.5s' }}>🦋</div>
-        <div className="absolute top-1/2 left-3 text-2xl animate-pulse">🌺</div>
-        <div className="absolute top-1/3 right-5 text-3xl animate-pulse">🌿</div>
-      </div>
-
+    <div className="min-h-screen bg-gradient-to-b from-green-400 via-green-300 to-yellow-200 p-4">
       {/* Header */}
-      <div className="flex justify-between items-center mb-6 relative z-10">
+      <div className="flex justify-between items-center mb-6">
         <ScoreBoard score={score} level={currentLevel} />
         <Button
           variant="ghost"
           onClick={() => setSoundEnabled(!soundEnabled)}
-          className="text-white hover:bg-white/20 border-2 border-white rounded-full p-3"
+          className="text-white hover:bg-white/20"
         >
           <Volume2 className={`h-6 w-6 ${soundEnabled ? 'text-white' : 'text-gray-400'}`} />
         </Button>
@@ -197,7 +173,7 @@ const MultiplicationGame = () => {
 
       {/* Game Content */}
       {currentQuestion && (
-        <div className="max-w-4xl mx-auto relative z-10">
+        <div className="max-w-4xl mx-auto">
           <QuestionDisplay 
             num1={currentQuestion.num1} 
             num2={currentQuestion.num2} 

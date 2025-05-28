@@ -13,30 +13,25 @@ interface FeedbackModalProps {
 const FeedbackModal = ({ isOpen, isCorrect, onNext, onClose }: FeedbackModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-md mx-auto bg-gradient-to-br from-white to-yellow-50 rounded-3xl border-4 border-yellow-300 shadow-2xl">
-        <div className="text-center p-8">
+      <DialogContent className="max-w-md mx-auto bg-white rounded-3xl border-0 shadow-2xl">
+        <div className="text-center p-6">
           {isCorrect ? (
             <>
-              <div className="text-9xl mb-6 animate-bounce">🎉</div>
-              <h2 className="text-4xl font-bold text-emerald-600 mb-4 font-comic">Amazing!</h2>
-              <p className="text-xl text-gray-700 mb-6 font-medium">You're a jungle math hero! 🦸‍♀️</p>
-              <div className="flex justify-center gap-3 mb-6">
-                <span className="text-4xl animate-spin" style={{ animationDuration: '2s' }}>⭐</span>
-                <span className="text-4xl animate-spin" style={{ animationDuration: '2s', animationDelay: '0.3s' }}>⭐</span>
-                <span className="text-4xl animate-spin" style={{ animationDuration: '2s', animationDelay: '0.6s' }}>⭐</span>
-              </div>
-              <div className="flex justify-center gap-2 mb-6">
-                <span className="text-3xl animate-bounce" style={{ animationDelay: '0s' }}>🍌</span>
-                <span className="text-3xl animate-bounce" style={{ animationDelay: '0.2s' }}>🍌</span>
-                <span className="text-3xl animate-bounce" style={{ animationDelay: '0.4s' }}>🍌</span>
+              <div className="text-8xl mb-4 animate-bounce">🎉</div>
+              <h2 className="text-3xl font-bold text-green-600 mb-4">Fantastic!</h2>
+              <p className="text-lg text-gray-600 mb-6">You got it right! Well done!</p>
+              <div className="flex justify-center gap-2 mb-4">
+                <span className="text-2xl animate-pulse">⭐</span>
+                <span className="text-2xl animate-pulse" style={{ animationDelay: '0.2s' }}>⭐</span>
+                <span className="text-2xl animate-pulse" style={{ animationDelay: '0.4s' }}>⭐</span>
               </div>
             </>
           ) : (
             <>
-              <div className="text-9xl mb-6 animate-bounce">🤔</div>
-              <h2 className="text-4xl font-bold text-orange-600 mb-4 font-comic">Oops!</h2>
-              <p className="text-xl text-gray-700 mb-6 font-medium">Don't worry! Even jungle explorers make mistakes! 🌿</p>
-              <div className="text-5xl mb-6 animate-pulse">💪</div>
+              <div className="text-8xl mb-4 animate-bounce">🤔</div>
+              <h2 className="text-3xl font-bold text-orange-600 mb-4">Oops!</h2>
+              <p className="text-lg text-gray-600 mb-6">That's not quite right. Try again!</p>
+              <div className="text-2xl mb-4">💪</div>
             </>
           )}
           
@@ -44,11 +39,11 @@ const FeedbackModal = ({ isOpen, isCorrect, onNext, onClose }: FeedbackModalProp
             onClick={onNext}
             className={`${
               isCorrect 
-                ? 'bg-gradient-to-r from-emerald-500 to-green-500 hover:from-emerald-600 hover:to-green-600' 
-                : 'bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600'
-            } text-white px-8 py-4 rounded-full text-xl font-bold transform transition hover:scale-110 shadow-lg border-4 border-white`}
+                ? 'bg-green-500 hover:bg-green-600' 
+                : 'bg-orange-500 hover:bg-orange-600'
+            } text-white px-8 py-3 rounded-full text-lg transform transition hover:scale-105`}
           >
-            {isCorrect ? 'Next Adventure! 🚀' : 'Try Again! 💪'}
+            {isCorrect ? 'Next Question! 🚀' : 'Try Again! 💪'}
           </Button>
         </div>
       </DialogContent>
